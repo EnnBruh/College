@@ -1,21 +1,17 @@
 #include <stdio.h>
 
+
 int main(void)
 {
     int ret = 0;
 
-    double a, b;
-    char op;
     printf("1 - suma\n2 - diferenta\n3 - produsul\n4 - impartirea\n");
+    printf("Optiunea: ");
+    int op = getchar();
+
+    double a, b;
     printf("Doua numere reale: ");
     if (scanf("%lf%lf", &a, &b) != 2)
-    {
-        printf("Date invalide\n");
-        ret = 1;
-    }
-
-    printf("Operatie: ");
-    if (scanf(" %c", &op) != 1)
     {
         printf("Date invalide\n");
         ret = 1;
@@ -24,15 +20,24 @@ int main(void)
     switch (op)
     {
         case '1':
-            printf("Suma: %lf", a + b);
+            printf("Suma: %lf\n", a + b);
             break;
         case '2':
-            printf("Diferenta: %lf", (a - b) < 0 ? (b - a) : (a - b));
+            printf("Diferenta: %lf\n", (a - b) < 0 ? (b - a) : (a - b));
             break;
         case '3':
-            printf("Produsul: %lf", a * b);
+            printf("Produsul: %lf\n", a * b);
         case '4':
-            printf("
+            if (b == 0.0)
+            {
+                printf("Impartire la zero\n");
+                ret = 1;
+            }
+            else
+            {
+                printf("Impartire: %lf\n", a / b);
+            }
+            break;
         default:
             printf("Operatie necunoscuta\n");
             ret = 1;
