@@ -2,7 +2,7 @@ CFLAGS = -std=c23 -Wall -Wextra -Wpedantic -g
 CLIB = -lm
 CSRC = $(wildcard *.c)
 COBJ = $(CSRC:.c=.o)
-TARGET = main
+TARGET = meteo
 
 $(TARGET): $(COBJ)
 	clang $(CFLAGS) -o $@ $(COBJ) $(CLIB)

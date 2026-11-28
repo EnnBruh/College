@@ -57,7 +57,39 @@ void pafisareVectorReali(double* a, int n)
     printf("%.2lf)", a[n - 1]);
 }
 
-double* vectorMedie(int* x, int* y, int n);
-double mediaAritmeticaVector(double* a, int n);
-double mediaAritmeticaIntregi(int a, int b);
-double sumaVectorReali(double* a, int n);
+double* vectorMedie(int* x, int* y, int n)
+{
+    double* vec = (double*)malloc(n * (sizeof (double)));
+    if (vec != NULL)
+    {
+        int i;
+        for (i = 0; i < n; ++i)
+        {
+            vec[i] = mediaAritmeticaIntregi(x[i], y[i]);
+        }
+    }
+    return vec;
+}
+
+double mediaAritmeticaVector(double* a, int n)
+{
+    double ans = sumaVectorReali(a, n);
+    ans /= n;
+    return ans;
+}
+
+double mediaAritmeticaIntregi(int a, int b)
+{
+    return (a + b) / 2.0;
+}
+
+double sumaVectorReali(double* a, int n)
+{
+    double ans = 0.0;
+    int i;
+    for (i = 0; i < n; ++i)
+    {
+        ans += a[i];
+    }
+    return ans;
+}
